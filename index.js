@@ -15,14 +15,15 @@ const client = new Client({
     ],
 })
 
-/*  0 -> Minute
+/*  00 -> Minute
     12 -> Hour
     * -> Day of month (Any is fine)
     * -> Month (Any is fine)
     7 -> Day of week (Sunday)
 */
 cron.schedule('00 12 * * 7', function() {
-    const channel = client.channels.cache.get('1030842629421805712');
+    const CHANNEL_ID = '1030842629421805712';
+    const channel = client.channels.cache.get(CHANNEL_ID);
     channel.send('Update time! Provide your weekly updates to your respective mentors');
 });
 
